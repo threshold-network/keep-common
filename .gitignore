@@ -1,3 +1,4 @@
 pkg/**/gen/*/*.go
 tools/**/gen/*/*.go
 !tools/generators/promise/gen/*.go
+!tools/generators/promise/gen/async/*.go
