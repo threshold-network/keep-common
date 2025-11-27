@@ -33,9 +33,9 @@ var (
 // increase the transaction's chance for being picked up by miners.
 //
 // Specific action depends on transaction type:
-// - legacy pre EIP-1559 transaction: bumps up the gas price by 20%
-// - dynamic fee post EIP-1559 transaction: bumps up the gas tip cap by 20%
-//   and adjusts the gas fee cap accordingly
+//   - legacy pre EIP-1559 transaction: bumps up the gas price by 20%
+//   - dynamic fee post EIP-1559 transaction: bumps up the gas tip cap by 20%
+//     and adjusts the gas fee cap accordingly
 type MiningWaiter struct {
 	client        EthereumClient
 	checkInterval time.Duration
@@ -391,15 +391,15 @@ func (mw *MiningWaiter) forceMiningDynamicFeeTx(
 }
 
 func (mw *MiningWaiter) latestBaseFee() (*big.Int, error) {
-	latestBlock, err := mw.client.BlockByNumber(
+	latestHeader, err := mw.client.HeaderByNumber(
 		context.Background(),
 		nil,
 	)
 	if err != nil {
-		return nil, fmt.Errorf("could not get the latest block: [%v]", err)
+		return nil, fmt.Errorf("could not get the latest block header: [%v]", err)
 	}
 
-	baseFee := latestBlock.BaseFee()
+	baseFee := latestHeader.BaseFee
 	if baseFee == nil {
 		return nil, fmt.Errorf("not an EIP-1559 block")
 	}
