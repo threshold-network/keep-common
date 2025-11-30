@@ -24,7 +24,7 @@ go test ./...
 - Go: 1.22 (CI uses `actions/setup-go@v4` with module cache).
 - Checks: `go generate` (enforced clean), `go vet`, `go build`, `go test` via `gotestsum`.
 - Security: `govulncheck` (informational), `gosec` pinned version.
-- Lint: `keep-network/golint-action@v1.0.2`.
+- Lint: `golint` installed via `go install`.
 
 == Releases
 
@@ -66,7 +66,7 @@ keep-common/
 == Installation
 
 * Clone this repo
-* Install go v1.18: `$ brew install go@1.18`
+* Install Go v1.22
 * Generate go files: `$ go generate ./.../gen`
 * Build the project: `$ go build ./...`
 * Run tests: `$ go test ./...`
