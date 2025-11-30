@@ -5,8 +5,8 @@ go 1.18
 require (
 	github.com/ethereum/go-ethereum v1.10.19
 	github.com/ipfs/go-log v0.0.1
-	github.com/spf13/cobra v1.5.0
-	github.com/spf13/pflag v1.0.5
+	github.com/spf13/cobra v1.10.1
+	github.com/spf13/pflag v1.0.9
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
@@ -25,7 +25,7 @@ require (
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/google/uuid v1.2.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
