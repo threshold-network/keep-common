@@ -4,7 +4,7 @@ Process for publishing tagged Go module releases for this fork of `keep-common`.
 
 ## Versioning
 1) Use SemVer tags on `main`: `vX.Y.Z` when matching upstream versions; append `-tlabs.N` for fork-only releases (increment `N` for subsequent fork tags at the same base version).
-2) Before tagging, check the latest upstream `keep-core/keep-common` tag to avoid collisions and decide whether you are mirroring or diverging.
+2) Latest known upstream tag is `v1.7.0` from https://github.com/keep-network/keep-common (tracked via git tags). Upstream is unmaintained, so future releases proceed independently on this fork.
 
 ## Pre-release Checklist
 1) Sync with upstream: pull the latest upstream tag/commit, resolve conflicts, and ensure CI is green.
