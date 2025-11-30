@@ -7,6 +7,10 @@ https://discord.gg/threshold[image:https://img.shields.io/badge/chat-Discord-586
 Common libraries and tools used across Keep repositories. This repository is a
 fork of https://github.com/keep-core/keep-common[`keep-core/keep-common`].
 
+== Releases
+
+See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps.
+
 == Directory structure
 
 The directory structure used in the `keep-common` repository is the same as
