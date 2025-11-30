@@ -1,4 +1,5 @@
-// This is auto generated code
+// Package async contains promise implementations generated for specific types.
+// This is auto generated code.
 package async
 
 import (
@@ -7,11 +8,10 @@ import (
 	"sync"
 )
 
-// Promise represents an eventual completion of an ansynchronous operation
-// and its resulting value. Promise can be either fulfilled or failed and
-// it can happen only one time. All Promise operations are thread-safe.
-//
-// To create a promise use: `&BigIntPromise{}`
+// BigIntPromise represents an eventual completion of an ansynchronous
+// operation and its resulting value. Promise can be either fulfilled or
+// failed and it can happen only one time. All Promise operations are
+// thread-safe. To create a promise use: `&BigIntPromise{}`
 type BigIntPromise struct {
 	mutex      sync.Mutex
 	successFn  func(*big.Int)
