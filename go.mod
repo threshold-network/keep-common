@@ -1,6 +1,6 @@
 module github.com/keep-network/keep-common
 
-go 1.18
+go 1.24.0
 
 require (
 	github.com/ethereum/go-ethereum v1.10.19
@@ -8,7 +8,7 @@ require (
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/pflag v1.0.5
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
-	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
+	golang.org/x/sync v0.18.0
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
 	golang.org/x/tools v0.1.11
 )
