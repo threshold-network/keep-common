@@ -1,13 +1,13 @@
 module github.com/keep-network/keep-common
 
-go 1.18
+go 1.24.0
 
 require (
 	github.com/ethereum/go-ethereum v1.10.19
 	github.com/ipfs/go-log v0.0.1
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/pflag v1.0.5
-	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
+	golang.org/x/crypto v0.45.0
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
 	golang.org/x/tools v0.1.11
@@ -38,6 +38,6 @@ require (
 	github.com/tyler-smith/go-bip39 v1.0.2 // indirect
 	github.com/whyrusleeping/go-logging v0.0.0-20170515211332-0457bb6b88fc // indirect
 	golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4 // indirect
-	golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect
+	golang.org/x/sys v0.38.0 // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 )
