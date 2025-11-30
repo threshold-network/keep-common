@@ -6,7 +6,7 @@ require (
 	github.com/ethereum/go-ethereum v1.10.19
 	github.com/ipfs/go-log v0.0.1
 	github.com/spf13/cobra v1.5.0
-	github.com/spf13/pflag v1.0.5
+	github.com/spf13/pflag v1.0.10
 	golang.org/x/crypto v0.0.0-20220525230936-793ad666bf5e
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
