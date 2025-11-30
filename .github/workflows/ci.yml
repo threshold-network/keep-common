@@ -61,5 +61,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Lint Go
-        uses: keep-network/golint-action@v1.0.2
+      - name: Install golint
+        run: go install golang.org/x/lint/golint@latest
+
+      - name: Run golint
+        run: golint ./...
