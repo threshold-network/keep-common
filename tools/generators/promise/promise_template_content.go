@@ -2,7 +2,8 @@ package main
 
 // promiseTemplateContent contains the template string from promise.go.tmpl
 var promiseTemplateContent = `{{/* This is a template for Promises */ -}}
-// This is auto generated code
+// Package async contains promise implementations generated for specific types.
+// This is auto generated code.
 package async
 
 import (
@@ -14,11 +15,10 @@ import (
 	{{- end }}
 )
 
-// Promise represents an eventual completion of an ansynchronous operation
-// and its resulting value. Promise can be either fulfilled or failed and
-// it can happen only one time. All Promise operations are thread-safe.
-//
-// To create a promise use: ` + "`" + `&{{ .Prefix }}Promise{}` + "`" + `
+// {{ .Prefix }}Promise represents an eventual completion of an ansynchronous
+// operation and its resulting value. Promise can be either fulfilled or
+// failed and it can happen only one time. All Promise operations are
+// thread-safe. To create a promise use: ` + "`" + `&{{ .Prefix }}Promise{}` + "`" + `
 type {{ .Prefix }}Promise struct {
 	mutex      sync.Mutex
 	successFn  func({{ .Type }})

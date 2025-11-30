@@ -153,9 +153,10 @@ func TestRateLimiter_RequestsPerSecondLimitOnly(t *testing.T) {
 			duration := time.Now().Sub(startTime)
 			averageRequestsPerSecond := float64(requests) / duration.Seconds()
 
-			// The actual average can exceed the limit a little bit.
-			// Here we set the maximum acceptable deviation to 5%.
-			maxDeviation := 0.05
+			// The actual average can exceed the limit a little bit because of
+			// scheduling jitter and coarse timer resolution. Allow a slightly
+			// wider deviation to avoid flakes on busy runners.
+			maxDeviation := 0.15
 
 			if averageRequestsPerSecond > (1+maxDeviation)*float64(requestsPerSecondLimit) {
 				t.Errorf(

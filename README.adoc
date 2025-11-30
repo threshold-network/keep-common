@@ -5,7 +5,30 @@ https://docs.threshold.network[image:https://img.shields.io/badge/docs-website-g
 https://discord.gg/threshold[image:https://img.shields.io/badge/chat-Discord-5865f2.svg[Chat with us on Discord]]
 
 Common libraries and tools used across Keep repositories. This repository is a
-fork of https://github.com/keep-core/keep-common[`keep-core/keep-common`].
+fork of https://github.com/keep-core/keep-common[`keep-core/keep-common`],
+continuing independently from the upstream `v1.7.0` tag.
+
+See link:RELEASE.md[Release guide] and link:CHANGELOG.md[Changelog] for versioning,
+tagging, and history.
+
+== Getting started
+
+```
+go mod tidy
+go generate ./.../gen
+go test ./...
+```
+
+== Toolchain & CI
+
+- Go: 1.22 (CI uses `actions/setup-go@v4` with module cache).
+- Checks: `go generate` (enforced clean), `go vet`, `go build`, `go test` via `gotestsum`.
+- Security: `govulncheck` (informational), `gosec` pinned version.
+- Lint: `golint` installed via `go install`.
+
+== Releases
+
+See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps.
 
 == Directory structure
 
@@ -43,7 +66,12 @@ keep-common/
 == Installation
 
 * Clone this repo
-* Install go v1.18: `$ brew install go@1.18`
+* Install Go v1.22
 * Generate go files: `$ go generate ./.../gen`
 * Build the project: `$ go build ./...`
 * Run tests: `$ go test ./...`
+
+== Contributing
+
+See link:CONTRIBUTING.adoc[Contribution Guide] for forking, signing, and PR
+expectations; keep tests green and generators clean before review.

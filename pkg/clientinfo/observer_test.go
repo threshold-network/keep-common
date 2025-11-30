@@ -11,7 +11,8 @@ func TestObserve(t *testing.T) {
 		return 5000
 	}
 	gauge := &Gauge{}
-	ctx, _ := context.WithTimeout(context.Background(), 5*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Millisecond)
+	defer cancel()
 
 	observer := &MetricObserver{input, gauge}
 
