@@ -16,4 +16,4 @@ Process for publishing tagged Go module releases for this fork of `keep-common`.
 ## Tagging & Publishing
 1) Tag: `git tag -a vX.Y.Z -m "Release vX.Y.Z"` (or `vX.Y.Z-tlabs.N` for fork-specific releases).
 2) Push tag: `git push origin vX.Y.Z[-tlabs.N]`.
-3) Create a GitHub release from the tag with the changelog excerpt and a note about the upstream baseline.
+3) CI: pushing a `v*` tag triggers the release workflow to regenerate code, run vet/tests, and publish a GitHub release. The release body can be edited afterward to include the changelog excerpt and upstream baseline notes if needed.

@@ -28,7 +28,7 @@ go test ./...
 
 == Releases
 
-See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps.
+See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps. Pushing a `v*` tag on `main` runs the release workflow, which regenerates code, vets, tests, and publishes a GitHub release for that tag.
 
 == Directory structure
 
