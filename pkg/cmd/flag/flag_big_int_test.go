@@ -1,9 +1,8 @@
 package flag
 
 import (
-	"fmt"
+	"errors"
 	"math/big"
-	"reflect"
 	"testing"
 
 	pflag "github.com/spf13/pflag"
@@ -25,9 +24,9 @@ func TestBigIntVarFlag_Set(t *testing.T) {
 		},
 		"invalid value": {
 			value: "100k",
-			expectedError: fmt.Errorf(
-				"invalid argument \"100k\" for \"--%s\" flag: failed to parse as big.Int: 100k",
-				bigIntFlagName,
+			expectedError: errors.New(
+				"invalid argument \"100k\" for \"--" + bigIntFlagName +
+					"\" flag: failed to parse as big.Int: 100k",
 			),
 			expectedValue: defaultValue,
 		},
@@ -43,7 +42,7 @@ func TestBigIntVarFlag_Set(t *testing.T) {
 
 			err := flags.Set(bigIntFlagName, test.value)
 
-			if !reflect.DeepEqual(test.expectedError, err) {
+			if errorMessage(err) != errorMessage(test.expectedError) {
 				t.Errorf(
 					"unexpected error\nexpected: %v\nactual:   %v\n",
 					test.expectedError,

@@ -1,9 +1,8 @@
 package flag
 
 import (
-	"fmt"
+	"errors"
 	"math/big"
-	"reflect"
 	"testing"
 
 	"github.com/keep-network/keep-common/pkg/chain/ethereum"
@@ -37,16 +36,16 @@ func TestWeiVarFlag_Set(t *testing.T) {
 		},
 		"value with invalid comma delimiter": {
 			value: "3,5 ether",
-			expectedError: fmt.Errorf(
-				"invalid argument \"3,5 ether\" for \"--%s\" flag: failed to parse value: [3,5 ether]",
-				flagName,
+			expectedError: errors.New(
+				"invalid argument \"3,5 ether\" for \"--" + flagName +
+					"\" flag: failed to parse value: [3,5 ether]",
 			),
 		},
 		"value with invalid unit": {
 			value: "10 bei",
-			expectedError: fmt.Errorf(
-				"invalid argument \"10 bei\" for \"--%s\" flag: invalid unit: bei; please use one of: ether, gwei, wei",
-				flagName,
+			expectedError: errors.New(
+				"invalid argument \"10 bei\" for \"--" + flagName +
+					"\" flag: invalid unit: bei; please use one of: ether, gwei, wei",
 			),
 		},
 	}
@@ -61,7 +60,7 @@ func TestWeiVarFlag_Set(t *testing.T) {
 
 			err := flags.Set(flagName, test.value)
 
-			if !reflect.DeepEqual(test.expectedError, err) {
+			if errorMessage(err) != errorMessage(test.expectedError) {
 				t.Errorf(
 					"unexpected error\nexpected: %v\nactual:   %v\n",
 					test.expectedError,
