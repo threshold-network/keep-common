@@ -10,7 +10,10 @@ import (
 
 	_ "unsafe"
 
-	_ "github.com/ethereum/go-ethereum/accounts/abi/bind"
+	// Anchor import for the //go:linkname targets below. The binding generator
+	// helpers moved from accounts/abi/bind (deprecated v1) to accounts/abi/abigen
+	// in go-ethereum v1.16, so we link into the new package.
+	_ "github.com/ethereum/go-ethereum/accounts/abi/abigen"
 )
 
 // The extracted name + payability of methods from ABI JSON.
@@ -25,18 +28,20 @@ var (
 )
 
 // bindStructTypeGo resolves Go bindings for structs. It links to a non-exported
-// method of go-ethereum's bind package that is used for Go bindings generation.
+// method of go-ethereum's abigen package that is used for Go bindings generation.
+// Renamed from bindStructTypeGo to bindStructType in go-ethereum v1.16.
 //
-//go:linkname bindStructTypeGo github.com/ethereum/go-ethereum/accounts/abi/bind.bindStructTypeGo
+//go:linkname bindStructTypeGo github.com/ethereum/go-ethereum/accounts/abi/abigen.bindStructType
 func bindStructTypeGo(kind abi.Type, structs map[string]struct{}) string
 
-// bindStructTypeGo resolves Go bindings for topics. It links to a non-exported
-// method of go-ethereum's bind package that is used for Go bindings generation.
+// bindTopicTypeGo resolves Go bindings for topics. It links to a non-exported
+// method of go-ethereum's abigen package that is used for Go bindings generation.
+// Renamed from bindTopicTypeGo to bindTopicType in go-ethereum v1.16.
 //
-//go:linkname bindTopicTypeGo github.com/ethereum/go-ethereum/accounts/abi/bind.bindTopicTypeGo
+//go:linkname bindTopicTypeGo github.com/ethereum/go-ethereum/accounts/abi/abigen.bindTopicType
 func bindTopicTypeGo(kind abi.Type, structs map[string]struct{}) string
 
-//go:linkname structured github.com/ethereum/go-ethereum/accounts/abi/bind.structured
+//go:linkname structured github.com/ethereum/go-ethereum/accounts/abi/abigen.structured
 func structured(args abi.Arguments) bool
 
 func init() {
