@@ -7,6 +7,9 @@ The format is based on Keep a Changelog and this fork follows Semantic Versionin
 ### Added
 - Release guide and initial changelog stub for the fork of `keep-core/keep-common`.
 
+### Changed
+- Bump minimum Go toolchain to 1.24 (required by `github.com/ethereum/go-ethereum` v1.17.3).
+
 ## Upstream Baseline - v1.7.0
 ### Notes
 - Latest upstream tag from https://github.com/keep-network/keep-common (tracked via git tags); upstream is unmaintained, so this fork continues independently from that point.
