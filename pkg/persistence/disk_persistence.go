@@ -207,7 +207,7 @@ func CheckStoragePermission(dirBasePath string) error {
 func EnsureDirectoryExists(dirBasePath, newDirName string) error {
 	dirPath := filepath.Join(dirBasePath, newDirName)
 	if _, err := os.Stat(dirPath); os.IsNotExist(err) {
-		err = os.Mkdir(dirPath, os.ModePerm)
+		err = os.Mkdir(dirPath, 0o750)
 		if err != nil {
 			return fmt.Errorf(
 				"error occurred while creating a dir: [%w]; "+

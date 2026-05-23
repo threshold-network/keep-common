@@ -97,7 +97,7 @@ func (bc *BlockCounter) WatchBlocks(ctx context.Context) <-chan uint64 {
 // waited on a message will be sent.
 func (bc *BlockCounter) receiveBlocks() {
 	for block := range bc.subscriptionChannel {
-		topBlockNumber, err := strconv.ParseInt(block.Number, 0, 32)
+		receivedBlockHeight, err := strconv.ParseUint(block.Number, 0, 64)
 		if err != nil {
 			logger.Errorf("error receiving a new block: [%v]", err)
 			continue
@@ -111,7 +111,6 @@ func (bc *BlockCounter) receiveBlocks() {
 		// If we have already received notification about this block,
 		// we do nothing. All handlers were already called for this block
 		// height.
-		receivedBlockHeight := uint64(topBlockNumber)
 		if receivedBlockHeight == bc.latestBlockHeight {
 			continue
 		}
