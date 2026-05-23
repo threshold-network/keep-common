@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/ethereum/go-ethereum v1.17.3
 	github.com/ipfs/go-log v0.0.1
-	github.com/spf13/cobra v1.8.1
+	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
 	golang.org/x/crypto v0.47.0
 	golang.org/x/sync v0.19.0
