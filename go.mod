@@ -1,6 +1,6 @@
 module github.com/keep-network/keep-common
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/ethereum/go-ethereum v1.17.3
@@ -8,9 +8,9 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/pflag v1.0.10
 	golang.org/x/crypto v0.47.0
-	golang.org/x/sync v0.19.0
+	golang.org/x/sync v0.20.0
 	golang.org/x/time v0.9.0
-	golang.org/x/tools v0.40.0
+	golang.org/x/tools v0.45.0
 )
 
 require (
@@ -47,6 +47,6 @@ require (
 	go.opentelemetry.io/otel v1.40.0 // indirect
 	go.opentelemetry.io/otel/metric v1.40.0 // indirect
 	go.opentelemetry.io/otel/trace v1.40.0 // indirect
-	golang.org/x/mod v0.31.0 // indirect
-	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/mod v0.36.0 // indirect
+	golang.org/x/sys v0.44.0 // indirect
 )
