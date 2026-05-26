@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: securego/gosec@v2.24.7
+      - uses: securego/gosec@v2.26.1
         with:
           args: ./...
 
