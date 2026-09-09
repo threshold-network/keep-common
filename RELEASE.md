@@ -10,10 +10,10 @@ Process for publishing tagged Go module releases for this fork of `keep-common`.
 1) Sync with upstream: pull the latest upstream tag/commit, resolve conflicts, and ensure CI is green.
 2) Generators: `go generate ./.../gen`; verify the worktree is clean afterward.
 3) Module sanity: `go mod tidy` (expect no diff) and `go list ./...` to confirm dependencies and packages resolve.
-4) Quality gates: `go vet ./...` and `go test ./...`; add `go test -race ./...` for concurrency-heavy changes.
+4) Quality gates: `go vet ./...`, `go test ./...`, and `govulncheck ./...` using the Go version in `go.mod`. Install the pinned scanner with `go install golang.org/x/vuln/cmd/govulncheck@v1.8.0`; add `go test -race ./...` for concurrency-heavy changes.
 5) Changelog: update `CHANGELOG.md` with Added/Changed/Fixed/Breaking notes and mention the upstream commit/tag you synced.
 
 ## Tagging & Publishing
 1) Tag: `git tag -a vX.Y.Z -m "Release vX.Y.Z"` (or `vX.Y.Z-tlabs.N` for fork-specific releases).
 2) Push tag: `git push origin vX.Y.Z[-tlabs.N]`.
-3) CI: pushing a `v*` tag triggers the release workflow to regenerate code, run vet/tests, and publish a GitHub release with a placeholder body referencing `CHANGELOG.md`. Edit the GitHub release afterward to paste the changelog excerpt and upstream baseline notes.
+3) CI: pushing a `v*` tag triggers the release workflow to regenerate code, run vet/tests and blocking vulnerability checks, and publish a GitHub release with a placeholder body referencing `CHANGELOG.md`. Edit the GitHub release afterward to paste the changelog excerpt and upstream baseline notes.

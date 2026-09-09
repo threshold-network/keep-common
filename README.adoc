@@ -21,14 +21,14 @@ go test ./...
 
 == Toolchain & CI
 
-- Go: 1.22 (CI uses `actions/setup-go@v4` with module cache).
+- Go: 1.26.8 or newer (CI uses `actions/setup-go@v6` with the version from `go.mod` and module cache).
 - Checks: `go generate` (enforced clean), `go vet`, `go build`, `go test` via `gotestsum`.
-- Security: `govulncheck` (informational), `gosec` pinned version.
+- Security: `govulncheck` (blocking in CI and releases), `gosec` pinned version.
 - Lint: `golint` installed via `go install`.
 
 == Releases
 
-See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps. Pushing a `v*` tag on `main` runs the release workflow, which regenerates code, vets, tests, and publishes a GitHub release for that tag.
+See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps. Pushing a `v*` tag on `main` runs the release workflow, which regenerates code, vets, tests, checks for vulnerabilities, and publishes a GitHub release for that tag.
 
 == Directory structure
 
@@ -66,7 +66,7 @@ keep-common/
 == Installation
 
 * Clone this repo
-* Install Go v1.22
+* Install Go v1.26.8 or newer
 * Generate go files: `$ go generate ./.../gen`
 * Build the project: `$ go build ./...`
 * Run tests: `$ go test ./...`

@@ -8,7 +8,9 @@ The format is based on Keep a Changelog and this fork follows Semantic Versionin
 - Release guide and initial changelog stub for the fork of `keep-core/keep-common`.
 
 ### Changed
-- Bump minimum Go toolchain to 1.24 (required by `github.com/ethereum/go-ethereum` v1.17.3).
+- Bump minimum Go toolchain to 1.26.8 to include standard library security fixes; CI and releases read this version from `go.mod`.
+- Upgrade `github.com/ethereum/go-ethereum` to v1.17.3 and `github.com/gorilla/websocket` to v1.5.3 to address dependency advisories.
+- Upgrade `govulncheck` to v1.8.0 and make vulnerability checks blocking in CI and before release publication (issue #3).
 
 ## Upstream Baseline - v1.7.0
 ### Notes
