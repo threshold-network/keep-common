@@ -51,6 +51,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: securego/gosec@v2.24.7
+        env:
+          # The container's bundled Go may be older than go.mod requires.
+          GOTOOLCHAIN: auto
         with:
           args: ./...
 
