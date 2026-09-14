@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: securego/gosec@v2.24.7
+      - uses: securego/gosec@v2.29.0
         env:
           # The container's bundled Go may be older than go.mod requires.
           GOTOOLCHAIN: auto
