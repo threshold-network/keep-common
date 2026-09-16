@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog and this fork follows Semantic Versioning for tagged releases.
 
 ## Unreleased
+### Deprecated
+- Plan retirement of this standalone Threshold fork after keep-core's release candidate lands and remaining consumers are reviewed. Runtime code and generators already live in keep-core; preserve existing module/repository coordinates and immutable tags. See [DEPRECATION.md](DEPRECATION.md).
+
 ### Added
-- Release guide and initial changelog stub for the fork of `keep-core/keep-common`.
+- Release guide and initial changelog stub for the fork of `keep-network/keep-common`.
 
 ### Changed
 - Bump minimum Go toolchain to 1.26.8 to include standard library security fixes; CI and releases read this version from `go.mod`.

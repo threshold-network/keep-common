@@ -1,6 +1,15 @@
 # Release Guide
 
-Process for publishing tagged Go module releases for this fork of `keep-common`.
+This standalone fork is being deprecated; see [DEPRECATION.md](DEPRECATION.md).
+Deprecation does not require a new release. Preserve all existing tags, module
+paths, and checksums so pinned consumers remain reproducible. Do not publish a
+renamed module or retract otherwise valid releases as part of retirement.
+
+The workflow remains available for maintenance releases while consumers are
+reviewed. Use the process below only for maintenance work agreed in
+[the retirement tracker](https://github.com/threshold-network/keep-common/issues/33).
+Do not archive the repository until that review and the release-candidate rollout
+are complete.
 
 ## Versioning
 1) Use SemVer tags on `main`: `vX.Y.Z` when matching upstream versions; append `-tlabs.N` for fork-only releases (increment `N` for subsequent fork tags at the same base version).
