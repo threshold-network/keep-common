@@ -1,12 +1,32 @@
 = `keep-common`
 
-https://github.com/keep-network/keep-common/actions/workflows/client.yml[image:https://img.shields.io/github/actions/workflow/status/keep-network/keep-common/client.yml?branch=main&event=push&label=Go build[Go build status]]
+https://github.com/threshold-network/keep-common/actions/workflows/client.yml[image:https://img.shields.io/github/actions/workflow/status/threshold-network/keep-common/client.yml?branch=main&event=push&label=Go build[Go build status]]
 https://docs.threshold.network[image:https://img.shields.io/badge/docs-website-green.svg[Docs]]
 https://discord.gg/threshold[image:https://img.shields.io/badge/chat-Discord-5865f2.svg[Chat with us on Discord]]
 
-Common libraries and tools used across Keep repositories. This repository is a
-fork of https://github.com/keep-core/keep-common[`keep-core/keep-common`],
-continuing independently from the upstream `v1.7.0` tag.
+== Deprecation
+
+This standalone Threshold fork is being retired. Its runtime packages and code
+generators have been incorporated into
+https://github.com/threshold-network/keep-core/tree/dev[`keep-core`'s release candidate]
+by https://github.com/threshold-network/keep-core/pull/4327[PR #4327]. The release
+candidate no longer depends on this module, including for code generation.
+
+The existing repository name, Go module path, tags, and releases will be retained
+for pinned builds. No `threshold-common` replacement module is planned. The
+in-tree packages in `keep-core` are not a drop-in standalone replacement.
+
+See link:DEPRECATION.md[Deprecation plan] for release timing, remaining-consumer
+review, and the conditions for archiving. CI remains active during that review.
+This notice applies to the Threshold fork only, not to the separate
+https://github.com/keep-network/keep-common[`keep-network/keep-common`] upstream
+or other organizations' forks.
+
+== Background
+
+Common Go libraries and tools originally used across Keep repositories. This
+Threshold fork preserves the upstream history through `v1.7.0` and its subsequent
+fork releases.
 
 See link:RELEASE.md[Release guide] and link:CHANGELOG.md[Changelog] for versioning,
 tagging, and history.
@@ -21,7 +41,7 @@ go test ./...
 
 == Toolchain & CI
 
-- Go: 1.26.8 or newer (CI uses `actions/setup-go@v6` with the version from `go.mod` and module cache).
+- Go: 1.26.8 or newer (CI uses `actions/setup-go@v7` with the version from `go.mod` and module cache).
 - Checks: `go generate` (enforced clean), `go vet`, `go build`, `go test` via `gotestsum`.
 - Security: `govulncheck` (blocking in CI and releases), `gosec` pinned version.
 - Lint: `golint` installed via `go install`.
