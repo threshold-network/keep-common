@@ -1,19 +1,41 @@
 # Release Guide
 
-Process for publishing tagged Go module releases for this fork of `keep-common`.
+Publish tagged releases of the `github.com/threshold-network/threshold-common`
+Go module. This repository continues the history of `keep-common`; historical
+tags keep their original module declarations and checksums.
 
 ## Versioning
-1) Use SemVer tags on `main`: `vX.Y.Z` when matching upstream versions; append `-tlabs.N` for fork-only releases (increment `N` for subsequent fork tags at the same base version).
-2) Latest known upstream tag is `v1.7.0` from https://github.com/keep-network/keep-common (tracked via git tags). Upstream is unmaintained, so future releases proceed independently on this fork.
 
-## Pre-release Checklist
-1) Sync with upstream: pull the latest upstream tag/commit, resolve conflicts, and ensure CI is green.
-2) Generators: `go generate ./.../gen`; verify the worktree is clean afterward.
-3) Module sanity: `go mod tidy` (expect no diff) and `go list ./...` to confirm dependencies and packages resolve.
-4) Quality gates: `go vet ./...`, `go test ./...`, and `govulncheck ./...` using the Go version in `go.mod`. Install the pinned scanner with `go install golang.org/x/vuln/cmd/govulncheck@v1.8.0`; add `go test -race ./...` for concurrency-heavy changes.
-5) Changelog: update `CHANGELOG.md` with Added/Changed/Fixed/Breaking notes and mention the upstream commit/tag you synced.
+Use immutable SemVer tags on `main`. The first release under the new module path
+is planned as `v1.8.0`, after the repository rename and the checks in
+[MIGRATION.md](MIGRATION.md). Confirm that the tag is unused before publishing.
+Do not move or reuse the inherited `v1.7.0` or `v1.7.1-tlabs.*` tags. The old
+`-tlabs.N` suffix records the fork's earlier releases; it is not required for
+new Threshold releases.
 
-## Tagging & Publishing
-1) Tag: `git tag -a vX.Y.Z -m "Release vX.Y.Z"` (or `vX.Y.Z-tlabs.N` for fork-specific releases).
-2) Push tag: `git push origin vX.Y.Z[-tlabs.N]`.
-3) CI: pushing a `v*` tag triggers the release workflow to regenerate code, run vet/tests and blocking vulnerability checks, and publish a GitHub release with a placeholder body referencing `CHANGELOG.md`. Edit the GitHub release afterward to paste the changelog excerpt and upstream baseline notes.
+## Pre-release checklist
+
+1. Complete the coordinated repository/module cutover in [MIGRATION.md](MIGRATION.md).
+2. Run `go generate ./...` and verify `git diff --exit-code`. This includes the
+   generator templates themselves, as well as the promise fixtures.
+3. Run `go mod tidy -diff` and `go list ./...`.
+4. Run `go vet ./...`, `go build ./...`, `go test ./...`, and `govulncheck ./...`
+   using the Go version in `go.mod`. Install the pinned scanner with
+   `go install golang.org/x/vuln/cmd/govulncheck@v1.8.0`. Add `go test -race ./...`
+   for concurrency changes.
+5. Move the appropriate `CHANGELOG.md` entries into the release section,
+   explicitly documenting the new module path and consumer migration.
+
+## Tagging and publishing
+
+1. From the reviewed commit on `main`, create an annotated `vX.Y.Z` tag and push
+   that tag to the renamed repository.
+2. The `v*` tag workflow regenerates code, runs vet/build/tests and vulnerability
+   checks, and publishes a GitHub release. Replace its placeholder body with the
+   changelog excerpt and migration link.
+3. In a fresh module outside this checkout, run
+   `go get github.com/threshold-network/threshold-common@vX.Y.Z` and verify
+   `go list -m all`. Repeat with the default Go proxy/checksum database and with
+   `GOPROXY=direct` to check both distribution paths.
+4. Finalize downstream version pins and checksums only after the release is
+   resolvable. Complete their builds and generator checks before merging.

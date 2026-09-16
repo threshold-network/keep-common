@@ -1,27 +1,29 @@
-= `keep-common`
+= `threshold-common`
 
-https://github.com/keep-network/keep-common/actions/workflows/client.yml[image:https://img.shields.io/github/actions/workflow/status/keep-network/keep-common/client.yml?branch=main&event=push&label=Go build[Go build status]]
+https://github.com/threshold-network/threshold-common/actions/workflows/client.yml[image:https://img.shields.io/github/actions/workflow/status/threshold-network/threshold-common/client.yml?branch=main&event=push&label=Go build[Go build status]]
 https://docs.threshold.network[image:https://img.shields.io/badge/docs-website-green.svg[Docs]]
 https://discord.gg/threshold[image:https://img.shields.io/badge/chat-Discord-5865f2.svg[Chat with us on Discord]]
 
-Common libraries and tools used across Keep repositories. This repository is a
-fork of https://github.com/keep-core/keep-common[`keep-core/keep-common`],
+Common Go libraries and tools used across Threshold repositories. This repository is a
+fork of https://github.com/keep-network/keep-common[`keep-network/keep-common`],
 continuing independently from the upstream `v1.7.0` tag.
 
 See link:RELEASE.md[Release guide] and link:CHANGELOG.md[Changelog] for versioning,
-tagging, and history.
+tagging, and history. See link:MIGRATION.md[Migration guide] for the
+`github.com/threshold-network/threshold-common` module path and coordinated
+repository rename.
 
 == Getting started
 
 ```
 go mod tidy
-go generate ./.../gen
+go generate ./...
 go test ./...
 ```
 
 == Toolchain & CI
 
-- Go: 1.26.8 or newer (CI uses `actions/setup-go@v6` with the version from `go.mod` and module cache).
+- Go: 1.26.8 or newer (CI uses `actions/setup-go@v7` with the version from `go.mod` and module cache).
 - Checks: `go generate` (enforced clean), `go vet`, `go build`, `go test` via `gotestsum`.
 - Security: `govulncheck` (blocking in CI and releases), `gosec` pinned version.
 - Lint: `golint` installed via `go install`.
@@ -32,12 +34,12 @@ See link:RELEASE.md[Release guide] for versioning, tagging, and publishing steps
 
 == Directory structure
 
-The directory structure used in the `keep-common` repository is the same as
-used on other Keep repositories, and very similar to that used in other Go
+The directory structure used in the `threshold-common` repository is the same as
+used on other Threshold repositories, and very similar to that used in other Go
 projects:
 
 ```
-keep-common/
+threshold-common/
   tools/ <1>
     generators/ <2>
   pkg/ <3>
@@ -49,7 +51,7 @@ keep-common/
     relay/
       relay.go, *.go
 ```
-<1> Keep tools have categorized directories here, which are typically Go
+<1> Threshold tools have categorized directories here, which are typically Go
     commands that can be used from other repositories.
 <2> Code generators in particular live in this subtree.
 <3> All additional Go packages live in `pkg/`.
@@ -67,7 +69,7 @@ keep-common/
 
 * Clone this repo
 * Install Go v1.26.8 or newer
-* Generate go files: `$ go generate ./.../gen`
+* Generate go files: `$ go generate ./...`
 * Build the project: `$ go build ./...`
 * Run tests: `$ go test ./...`
 

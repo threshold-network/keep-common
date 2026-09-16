@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/keep-network/keep-common/tools/generators/promise/gen/async"
+	"github.com/threshold-network/threshold-common/tools/generators/promise/gen/async"
 )
 
 func TestBigIntPromiseOnSuccessFulfill(t *testing.T) {

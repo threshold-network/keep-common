@@ -24,7 +24,7 @@ jobs:
           cache: true
 
       - name: Run Go generators
-        run: go generate ./.../gen
+        run: go generate ./...
 
       - name: Ensure generated code is clean
         run: git diff --exit-code

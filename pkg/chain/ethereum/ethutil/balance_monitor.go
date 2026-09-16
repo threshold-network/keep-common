@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/keep-network/keep-common/pkg/chain/ethereum"
+	"github.com/threshold-network/threshold-common/pkg/chain/ethereum"
 )
 
 // BalanceSource provides a balance info for the given address.

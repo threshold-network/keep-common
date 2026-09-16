@@ -7,8 +7,8 @@ import (
 	"math/big"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/keep-network/keep-common/pkg/chain/ethereum"
-	"github.com/keep-network/keep-common/pkg/cmd/flag"
+	"github.com/threshold-network/threshold-common/pkg/chain/ethereum"
+	"github.com/threshold-network/threshold-common/pkg/cmd/flag"
 	"github.com/spf13/cobra"
 )
 

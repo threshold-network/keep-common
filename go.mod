@@ -1,4 +1,4 @@
-module github.com/keep-network/keep-common
+module github.com/threshold-network/threshold-common
 
 go 1.26.8
 

@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/keep-network/keep-common/pkg/chain/ethereum/ethutil"
+	"github.com/threshold-network/threshold-common/pkg/chain/ethereum/ethutil"
 )
 
 func TestKeyFileDecryption(t *testing.T) {

@@ -8,7 +8,7 @@ import (
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/keep-network/keep-common/pkg/chain/ethereum"
+	"github.com/threshold-network/threshold-common/pkg/chain/ethereum"
 )
 
 var (

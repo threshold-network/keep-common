@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog and this fork follows Semantic Versioning for tagged releases.
 
 ## Unreleased
+### Breaking
+- Rename the Go module to `github.com/threshold-network/threshold-common`. Consumers must migrate imports, generator invocations, and module requirements together; see [MIGRATION.md](MIGRATION.md). Existing tags retain their original module identity.
+
 ### Added
-- Release guide and initial changelog stub for the fork of `keep-core/keep-common`.
+- Release guide and initial changelog stub for the fork of `keep-network/keep-common`.
 
 ### Changed
 - Bump minimum Go toolchain to 1.26.8 to include standard library security fixes; CI and releases read this version from `go.mod`.

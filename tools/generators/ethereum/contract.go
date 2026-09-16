@@ -1,8 +1,8 @@
-//go:generate go run github.com/keep-network/keep-common/tools/generators/template contract_const_methods.go.tmpl contract_const_methods_template_content.go
-//go:generate go run github.com/keep-network/keep-common/tools/generators/template contract_non_const_methods.go.tmpl contract_non_const_methods_template_content.go
-//go:generate go run github.com/keep-network/keep-common/tools/generators/template contract_events.go.tmpl contract_events_template_content.go
-//go:generate go run github.com/keep-network/keep-common/tools/generators/template contract.go.tmpl contract_template_content.go
-//go:generate go run github.com/keep-network/keep-common/tools/generators/template command.go.tmpl command_template_content.go
+//go:generate go run github.com/threshold-network/threshold-common/tools/generators/template contract_const_methods.go.tmpl contract_const_methods_template_content.go
+//go:generate go run github.com/threshold-network/threshold-common/tools/generators/template contract_non_const_methods.go.tmpl contract_non_const_methods_template_content.go
+//go:generate go run github.com/threshold-network/threshold-common/tools/generators/template contract_events.go.tmpl contract_events_template_content.go
+//go:generate go run github.com/threshold-network/threshold-common/tools/generators/template contract.go.tmpl contract_template_content.go
+//go:generate go run github.com/threshold-network/threshold-common/tools/generators/template command.go.tmpl command_template_content.go
 
 package main
 
@@ -50,7 +50,7 @@ func main() {
 
 	chainUtilPackage := flag.String(
 		"chain-util-package",
-		"github.com/keep-network/keep-common/pkg/chain/ethereum/ethutil",
+		"github.com/threshold-network/threshold-common/pkg/chain/ethereum/ethutil",
 		"Host chain utils package imported from the generated code",
 	)
 

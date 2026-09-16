@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/keep-network/keep-common/pkg/generate"
+	"github.com/threshold-network/threshold-common/pkg/generate"
 )
 
 const (

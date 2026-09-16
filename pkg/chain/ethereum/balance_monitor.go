@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/keep-network/keep-common/pkg/wrappers"
+	"github.com/threshold-network/threshold-common/pkg/wrappers"
 )
 
 // BalanceSource provides a balance info for the given address.

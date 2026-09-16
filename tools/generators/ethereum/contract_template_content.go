@@ -21,8 +21,8 @@ import (
 	"github.com/ipfs/go-log"
 
 	chainutil "{{.ChainUtilPackage}}"
-	"github.com/keep-network/keep-common/pkg/chain/ethereum"
-	"github.com/keep-network/keep-common/pkg/subscription"
+	"github.com/threshold-network/threshold-common/pkg/chain/ethereum"
+	"github.com/threshold-network/threshold-common/pkg/subscription"
 )
 
 // Create a package-level logger for this contract. The logger exists at

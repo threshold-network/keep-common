@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/keep-network/keep-common/pkg/rate"
+	"github.com/threshold-network/threshold-common/pkg/rate"
 )
 
 type rateLimiter struct {
